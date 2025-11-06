@@ -1,6 +1,7 @@
 #include <reg51.h>
 
-sbit button = P1^0;
+sbit button0 = P1^0;
+sbit button1 = P1^1;
 sbit LED = P2^0;
 
 void delay(int ms){
@@ -10,16 +11,23 @@ void delay(int ms){
 	}
 }
 
+void blink(unsigned int p){
+	int k;
+	for(k=0; k<p; k++){
+		LED = 0;
+		delay(100);
+		LED = 1;
+		delay(100);
+	}
+}
+
 void main(){
 	while(1){
-			if(button == 0){
-				int k;
-				for(k=0; k<5; k++){
-					LED = 0;
-					delay(100);
-					LED = 1;
-					delay(100);
-				}
+			if(button0 == 0){
+				blink(1);
+			}
+			else if(button1 == 0){
+				blink(2);
 			}
 	}
 

@@ -1,4 +1,4 @@
-C51 COMPILER V9.57.0.0   BUTTON                                                            10/30/2025 19:57:03 PAGE 1   
+C51 COMPILER V9.57.0.0   BUTTON                                                            11/06/2025 18:42:45 PAGE 1   
 
 
 C51 COMPILER V9.57.0.0, COMPILATION OF MODULE BUTTON
@@ -10,34 +10,42 @@ line level    source
 
    1          #include <reg51.h>
    2          
-   3          sbit button = P1^0;
-   4          sbit LED = P2^0;
-   5          
-   6          void delay(int ms){
-   7   1        int i,j;
-   8   1        for(i=0; i<ms; i++){
-   9   2          for(j=0; j<1200; j++){}
-  10   2        }
-  11   1      }
-  12          
-  13          void main(){
-  14   1        while(1){
-  15   2            if(button == 0){
-  16   3              int k;
-  17   3              for(k=0; k<5; k++){
-  18   4                LED = 0;
-  19   4                delay(100);
-  20   4                LED = 1;
-  21   4                delay(100);
-  22   4              }
-  23   3            }
-  24   2        }
-  25   1      
-  26   1      }
+   3          sbit button0 = P1^0;
+   4          sbit button1 = P1^1;
+   5          sbit LED = P2^0;
+   6          
+   7          void delay(int ms){
+   8   1        int i,j;
+   9   1        for(i=0; i<ms; i++){
+  10   2          for(j=0; j<1200; j++){}
+  11   2        }
+  12   1      }
+  13          
+  14          void blink(unsigned int p){
+  15   1        int k;
+  16   1        for(k=0; k<p; k++){
+  17   2          LED = 0;
+  18   2          delay(100);
+  19   2          LED = 1;
+  20   2          delay(100);
+  21   2        }
+  22   1      }
+  23          
+  24          void main(){
+  25   1        while(1){
+  26   2            if(button0 == 0){
+  27   3              blink(1);
+  28   3            }
+  29   2            else if(button1 == 0){
+  30   3              blink(2);
+  31   3            }
+  32   2        }
+  33   1      
+  34   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     83    ----
+   CODE SIZE        =     98    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
