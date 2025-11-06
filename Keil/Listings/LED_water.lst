@@ -1,0 +1,47 @@
+C51 COMPILER V9.57.0.0   LED_WATER                                                         10/20/2025 23:23:55 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE LED_WATER
+OBJECT MODULE PLACED IN .\Objects\LED_water.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LED_water.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\LED_water.lst) TABS(2) OBJECT(.\Objects\LED_water.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          
+   3          void timedelay(int display_ms){
+   4   1          unsigned int time = 120;
+   5   1          int i,j;
+   6   1          for(i=0; i<display_ms ;i++){
+   7   2            for(j=0; j<time; j++){}
+   8   2          }
+   9   1      }
+  10          
+  11          void led(){
+  12   1        int i;
+  13   1        for(i=0; i<3; i++){
+  14   2          P2=~(0x01<<i);
+  15   2          timedelay(100);
+  16   2        }
+  17   1      }
+  18          
+  19          void main(){
+  20   1        while(1){
+  21   2          led();
+  22   2        }
+  23   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     96    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

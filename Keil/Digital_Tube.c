@@ -1,0 +1,67 @@
+#include <reg51.h>
+
+void timedelay(int ms){
+	unsigned int time = 120;
+	int i,j;
+	for(i=0; i<ms; i++){
+		for(j=0; j<time; j++){}
+	}
+}
+
+void tube(int num){
+	if(num == 1){
+		P2=0x06;
+	}
+	else if(num == 2){
+		P2=0x5B;
+	}
+	else if(num == 3){
+		P2=0x4F;
+	}
+	else if(num == 4){
+		P2=0x66;
+	}
+	else if(num == 5){
+		P2=0x6D;
+	}
+	else if(num == 6){
+		P2=0x7D;
+	}
+	else if(num == 7){
+		P2=0x07;
+	}
+	else if(num == 8){
+		P2=0x7F;
+	}
+	else if(num == 9){
+		P2=0xEF;
+	}
+	else if(num == 0){
+		P2=0x3F;
+	}
+}
+
+void main(){
+	while(1){
+		tube(1);
+		timedelay(1000);
+		tube(2);
+		timedelay(1000);
+		tube(3);
+		timedelay(1000);
+		tube(4);
+		timedelay(1000);
+		tube(5);
+		timedelay(1000);
+		tube(6);
+		timedelay(1000);
+		tube(7);
+		timedelay(1000);
+		tube(8);
+		timedelay(1000);
+		tube(9);
+		timedelay(1000);
+		tube(0);
+		timedelay(1000);
+	}
+}

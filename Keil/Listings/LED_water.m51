@@ -1,0 +1,101 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    10/20/2025  23:23:55  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\LED_water.obj TO .\Objects\LED_water PRINT (.\Listings\LED_water.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\LED_water.obj (LED_WATER)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\LED_water (LED_WATER)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         _DATA_GROUP_
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0030H     UNIT         ?PR?LED?LED_WATER
+            CODE    0033H     002BH     UNIT         ?PR?_TIMEDELAY?LED_WATER
+            CODE    005EH     000CH     UNIT         ?C_C51STARTUP
+            CODE    006AH     0005H     UNIT         ?PR?MAIN?LED_WATER
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\LED_water (LED_WATER)
+
+
+SEGMENT                            DATA_GROUP 
+  +--> CALLED SEGMENT            START    LENGTH
+------------------------------------------------
+?C_C51STARTUP                    -----    -----
+  +--> ?PR?MAIN?LED_WATER
+
+?PR?MAIN?LED_WATER               -----    -----
+  +--> ?PR?LED?LED_WATER
+
+?PR?LED?LED_WATER                0008H    0002H
+  +--> ?PR?_TIMEDELAY?LED_WATER
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\LED_water (LED_WATER)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED_WATER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:006AH         PUBLIC        main
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/20/2025  23:23:55  PAGE 2
+
+
+  C:0003H         PUBLIC        led
+  C:0033H         PUBLIC        _timedelay
+  -------         PROC          _TIMEDELAY
+  D:0006H         SYMBOL        display_ms
+  -------         DO            
+  D:0004H         SYMBOL        time
+  D:0002H         SYMBOL        i
+  D:0082H         SYMBOL        j
+  -------         ENDDO         
+  C:0033H         LINE#         3
+  C:0033H         LINE#         4
+  C:0037H         LINE#         6
+  C:0047H         LINE#         7
+  C:0056H         LINE#         8
+  C:005DH         LINE#         9
+  -------         ENDPROC       _TIMEDELAY
+  -------         PROC          LED
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         11
+  C:0003H         LINE#         13
+  C:0008H         LINE#         14
+  C:0018H         LINE#         15
+  C:001FH         LINE#         16
+  C:0032H         LINE#         17
+  -------         ENDPROC       LED
+  -------         PROC          MAIN
+  C:006AH         LINE#         19
+  C:006AH         LINE#         20
+  C:006AH         LINE#         21
+  C:006DH         LINE#         22
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED_WATER
+
+Program Size: data=11.0 xdata=0 code=111
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
