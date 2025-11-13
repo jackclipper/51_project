@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    10/22/2025  14:41:09  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    11/13/2025  19:25:24  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -26,9 +26,9 @@ LINK MAP OF MODULE:  .\Objects\Digital_Tube (DIGITAL_TUBE)
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
             CODE    0003H     0062H     UNIT         ?PR?_TUBE?DIGITAL_TUBE
-            CODE    0065H     0036H     UNIT         ?PR?MAIN?DIGITAL_TUBE
-            CODE    009BH     0034H     UNIT         ?PR?_TIMEDELAY?DIGITAL_TUBE
-            CODE    00CFH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0065H     002BH     UNIT         ?PR?_TIMEDELAY?DIGITAL_TUBE
+            CODE    0090H     0016H     UNIT         ?PR?MAIN?DIGITAL_TUBE
+            CODE    00A6H     000CH     UNIT         ?C_C51STARTUP
 
 
 
@@ -42,10 +42,8 @@ SEGMENT
   +--> ?PR?MAIN?DIGITAL_TUBE
 
 ?PR?MAIN?DIGITAL_TUBE
-  +--> ?PR?_TIMEDELAY?DIGITAL_TUBE
-
-?PR?_TIMEDELAY?DIGITAL_TUBE
   +--> ?PR?_TUBE?DIGITAL_TUBE
+  +--> ?PR?_TIMEDELAY?DIGITAL_TUBE
 
 
 
@@ -57,18 +55,13 @@ SYMBOL TABLE OF MODULE:  .\Objects\Digital_Tube (DIGITAL_TUBE)
   -------         MODULE        DIGITAL_TUBE
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:00A0H         PUBLIC        P2
-  C:0065H         PUBLIC        main
+  D:00B0H         PUBLIC        P3
+  C:0090H         PUBLIC        main
   C:0003H         PUBLIC        _tube
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/22/2025  14:41:09  PAGE 2
+  C:0065H         PUBLIC        _timedelay
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/13/2025  19:25:24  PAGE 2
 
 
-  C:00A4H         PUBLIC        _timedelay
-  C:009BH         SYMBOL        L?0033
-  C:009DH         SYMBOL        L?0034
-  -------         PROC          L?0032
-  -------         ENDPROC       L?0032
-  C:009BH         SYMBOL        L?0033
-  C:009DH         SYMBOL        L?0034
   -------         PROC          _TIMEDELAY
   D:0006H         SYMBOL        ms
   -------         DO            
@@ -76,12 +69,12 @@ SYMBOL TABLE OF MODULE:  .\Objects\Digital_Tube (DIGITAL_TUBE)
   D:0002H         SYMBOL        i
   D:0082H         SYMBOL        j
   -------         ENDDO         
-  C:00A4H         LINE#         3
-  C:00A4H         LINE#         4
-  C:00A8H         LINE#         6
-  C:00B8H         LINE#         7
-  C:00C7H         LINE#         8
-  C:00CEH         LINE#         9
+  C:0065H         LINE#         3
+  C:0065H         LINE#         4
+  C:0069H         LINE#         6
+  C:0079H         LINE#         7
+  C:0088H         LINE#         8
+  C:008FH         LINE#         9
   -------         ENDPROC       _TIMEDELAY
   -------         PROC          _TUBE
   D:0006H         SYMBOL        num
@@ -119,34 +112,18 @@ SYMBOL TABLE OF MODULE:  .\Objects\Digital_Tube (DIGITAL_TUBE)
   C:0064H         LINE#         42
   -------         ENDPROC       _TUBE
   -------         PROC          MAIN
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/22/2025  14:41:09  PAGE 3
+  C:0090H         LINE#         44
+  C:0090H         LINE#         45
+  C:0090H         LINE#         46
+  C:0093H         LINE#         47
+  C:009AH         LINE#         48
+  C:009DH         LINE#         49
+  C:00A4H         LINE#         50
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/13/2025  19:25:24  PAGE 3
 
 
-  C:0065H         LINE#         44
-  C:0065H         LINE#         45
-  C:0065H         LINE#         46
-  C:0067H         LINE#         47
-  C:006AH         LINE#         48
-  C:006CH         LINE#         49
-  C:006FH         LINE#         50
-  C:0071H         LINE#         51
-  C:0074H         LINE#         52
-  C:0076H         LINE#         53
-  C:0079H         LINE#         54
-  C:007BH         LINE#         55
-  C:007EH         LINE#         56
-  C:0080H         LINE#         57
-  C:0083H         LINE#         58
-  C:0085H         LINE#         59
-  C:0088H         LINE#         60
-  C:008AH         LINE#         61
-  C:008DH         LINE#         62
-  C:008FH         LINE#         63
-  C:0092H         LINE#         64
-  C:0095H         LINE#         65
-  C:0098H         LINE#         66
   -------         ENDPROC       MAIN
   -------         ENDMOD        DIGITAL_TUBE
 
-Program Size: data=9.0 xdata=0 code=219
+Program Size: data=9.0 xdata=0 code=178
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

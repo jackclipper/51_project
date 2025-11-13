@@ -1,0 +1,112 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    11/13/2025  19:55:11  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\Digital_Tube_Dynamic.obj TO .\Objects\Digital_Tube_Dynamic PRINT (.\Listings\Digit
+>> al_Tube_Dynamic.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\Digital_Tube_Dynamic.obj (DIGITAL_TUBE_DYNAMIC)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\Digital_Tube_Dynamic (DIGITAL_TUBE_DYNAMIC)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000EH     UNIT         ?DT?DIGITAL_TUBE_DYNAMIC
+            DATA    0016H     0002H     UNIT         _DATA_GROUP_
+            IDATA   0018H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     0054H     UNIT         ?PR?MAIN?DIGITAL_TUBE_DYNAMIC
+            CODE    00E3H     002BH     UNIT         ?PR?_TIMEDELAY?DIGITAL_TUBE_DYNAMIC
+            CODE    010EH     0013H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Digital_Tube_Dynamic (DIGITAL_TUBE_DYNAMIC)
+
+
+SEGMENT                                       DATA_GROUP 
+  +--> CALLED SEGMENT                       START    LENGTH
+-----------------------------------------------------------
+?C_C51STARTUP                               -----    -----
+  +--> ?PR?MAIN?DIGITAL_TUBE_DYNAMIC
+  +--> ?C_INITSEG
+
+?PR?MAIN?DIGITAL_TUBE_DYNAMIC               0016H    0002H
+  +--> ?PR?_TIMEDELAY?DIGITAL_TUBE_DYNAMIC
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Digital_Tube_Dynamic (DIGITAL_TUBE_DYNAMIC)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DIGITAL_TUBE_DYNAMIC
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/13/2025  19:55:11  PAGE 2
+
+
+  D:00A0H         PUBLIC        P2
+  D:0008H         PUBLIC        string
+  C:008FH         PUBLIC        main
+  B:00A0H.0       PUBLIC        _7SEG1
+  B:00A0H.1       PUBLIC        _7SEG2
+  B:00A0H.2       PUBLIC        _7SEG3
+  B:00A0H.3       PUBLIC        _7SEG4
+  D:000CH         SYMBOL        segCode
+  C:00E3H         PUBLIC        _timedelay
+  -------         PROC          _TIMEDELAY
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        time
+  D:0002H         SYMBOL        i
+  D:0082H         SYMBOL        j
+  -------         ENDDO         
+  C:00E3H         LINE#         14
+  C:00E3H         LINE#         15
+  C:00E7H         LINE#         17
+  C:00F7H         LINE#         18
+  C:0106H         LINE#         19
+  C:010DH         LINE#         20
+  -------         ENDPROC       _TIMEDELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0016H         SYMBOL        k
+  -------         ENDDO         
+  C:008FH         LINE#         22
+  C:008FH         LINE#         24
+  C:008FH         LINE#         25
+  C:0094H         LINE#         26
+  C:0096H         LINE#         27
+  C:0098H         LINE#         28
+  C:009AH         LINE#         29
+  C:009CH         LINE#         30
+  C:00A8H         LINE#         31
+  C:00BBH         LINE#         32
+  C:00BFH         LINE#         33
+  C:00C3H         LINE#         34
+  C:00C7H         LINE#         35
+  C:00C9H         LINE#         36
+  C:00C9H         LINE#         37
+  C:00D0H         LINE#         38
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DIGITAL_TUBE_DYNAMIC
+
+Program Size: data=25.0 xdata=0 code=289
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,3 @@
+".\Objects\Digital_Tube_Dynamic.obj" 
+TO ".\Objects\Digital_Tube_Dynamic" 
+PRINT(".\Listings\Digital_Tube_Dynamic.m51")

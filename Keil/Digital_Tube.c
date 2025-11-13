@@ -43,25 +43,9 @@ void tube(int num){
 
 void main(){
 	while(1){
+		P3=1;
 		tube(1);
-		timedelay(1000);
-		tube(2);
-		timedelay(1000);
-		tube(3);
-		timedelay(1000);
-		tube(4);
-		timedelay(1000);
-		tube(5);
-		timedelay(1000);
-		tube(6);
-		timedelay(1000);
-		tube(7);
-		timedelay(1000);
-		tube(8);
-		timedelay(1000);
-		tube(9);
-		timedelay(1000);
-		tube(0);
-		timedelay(1000);
+		P3=0;
+		timedelay(10000);
 	}
 }

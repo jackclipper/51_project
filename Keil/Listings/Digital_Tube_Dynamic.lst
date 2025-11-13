@@ -1,0 +1,65 @@
+C51 COMPILER V9.57.0.0   DIGITAL_TUBE_DYNAMIC                                              11/13/2025 19:53:56 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE DIGITAL_TUBE_DYNAMIC
+OBJECT MODULE PLACED IN .\Objects\Digital_Tube_Dynamic.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Digital_Tube_Dynamic.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT
+                    -(.\Listings\Digital_Tube_Dynamic.lst) TABS(2) OBJECT(.\Objects\Digital_Tube_Dynamic.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          
+   3          sbit _7SEG1=P2^0;
+   4          sbit _7SEG2=P2^1;
+   5          sbit _7SEG3=P2^2;
+   6          sbit _7SEG4=P2^3;
+   7          
+   8          static unsigned char segCode[10]=
+   9          {0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82,
+  10          0xd8, 0x80, 0x90}; //共阳型字模
+  11          
+  12          unsigned char string[]={1,8,9,5};
+  13          
+  14          void timedelay(int ms){
+  15   1        unsigned int time = 120;
+  16   1        int i,j;
+  17   1        for(i=0; i<ms; i++){
+  18   2          for(j=0; j<time; j++){}
+  19   2        }
+  20   1      }
+  21          
+  22          void main(){
+  23   1        unsigned int k;
+  24   1        while(1){
+  25   2          for(k=0; k<4; k++){
+  26   3            _7SEG1=0;
+  27   3            _7SEG2=0;
+  28   3            _7SEG3=0;
+  29   3            _7SEG4=0; //先关显示！
+  30   3            P0=segCode[string[k]];
+  31   3            switch(k){
+  32   4              case 0: _7SEG1=1; break;
+  33   4              case 1: _7SEG2=1; break;
+  34   4              case 2: _7SEG3=1; break;
+  35   4              case 3: _7SEG4=1; break;
+  36   4            }
+  37   3            timedelay(10);
+  38   3          }
+  39   2          
+  40   2        }
+  41   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    127    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     14       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
