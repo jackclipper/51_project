@@ -1,0 +1,330 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    11/22/2025  14:21:10  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\Digital_Tube_Dynamic_3.obj TO .\Objects\Digital_Tube_Dynamic_3 PRINT (.\Listings\D
+>> igital_Tube_Dynamic_3.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\Digital_Tube_Dynamic_3.obj (DIGITAL_TUBE_DYNAMIC_3)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\Digital_Tube_Dynamic_3 (DIGITAL_TUBE_DYNAMIC_3)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0007H     UNIT         ?DT?DIGITAL_TUBE_DYNAMIC_3
+            DATA    000FH     0001H     UNIT         _DATA_GROUP_
+            IDATA   0010H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     0044H     UNIT         ?PR?PLACE_CHANGE_CLOCKWISE_TYPE1?DIGITAL_TUBE_DYNAMIC_3
+            CODE    00D3H     0044H     UNIT         ?PR?PLACE_CHANGE_ANTICLOCKWISE_TYPE1?DIGITAL_TUBE_DYNAMIC_3
+            CODE    0117H     0042H     UNIT         ?PR?PLACE_CHANGE_CLOCKWISE_TYPE0?DIGITAL_TUBE_DYNAMIC_3
+            CODE    0159H     0042H     UNIT         ?PR?PLACE_CHANGE_ANTICLOCKWISE_TYPE0?DIGITAL_TUBE_DYNAMIC_3
+            CODE    019BH     0028H     UNIT         ?PR?SHOW_TAIL?DIGITAL_TUBE_DYNAMIC_3
+            CODE    01C3H     0027H     UNIT         ?PR?KEYCHECK?DIGITAL_TUBE_DYNAMIC_3
+            CODE    01EAH     0027H     UNIT         ?PR?MAIN?DIGITAL_TUBE_DYNAMIC_3
+            CODE    0211H     0020H     UNIT         ?PR?_TIMEDELAY?DIGITAL_TUBE_DYNAMIC_3
+            CODE    0231H     0020H     UNIT         ?PR?_SHOW?DIGITAL_TUBE_DYNAMIC_3
+            CODE    0251H     0010H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Digital_Tube_Dynamic_3 (DIGITAL_TUBE_DYNAMIC_3)
+
+
+SEGMENT                                            DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH
+----------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?DIGITAL_TUBE_DYNAMIC_3
+  +--> ?C_INITSEG
+
+?PR?MAIN?DIGITAL_TUBE_DYNAMIC_3                  000FH    0001H
+  +--> ?PR?KEYCHECK?DIGITAL_TUBE_DYNAMIC_3
+  +--> ?PR?_SHOW?DIGITAL_TUBE_DYNAMIC_3
+  +--> ?PR?SHOW_TAIL?DIGITAL_TUBE_DYNAMIC_3
+  +--> ?PR?PLACE_CHANGE_CLOCKWISE_TYPE0?DIGI...
+  +--> ?PR?PLACE_CHANGE_CLOCKWISE_TYPE1?DIGI...
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/22/2025  14:21:10  PAGE 2
+
+
+
+?PR?KEYCHECK?DIGITAL_TUBE_DYNAMIC_3              -----    -----
+  +--> ?PR?_TIMEDELAY?DIGITAL_TUBE_DYNAMIC_3
+
+?PR?_SHOW?DIGITAL_TUBE_DYNAMIC_3                 -----    -----
+  +--> ?PR?_TIMEDELAY?DIGITAL_TUBE_DYNAMIC_3
+
+?PR?SHOW_TAIL?DIGITAL_TUBE_DYNAMIC_3             -----    -----
+  +--> ?PR?PLACE_CHANGE_ANTICLOCKWISE_TYPE0?...
+  +--> ?PR?PLACE_CHANGE_ANTICLOCKWISE_TYPE1?...
+  +--> ?PR?_SHOW?DIGITAL_TUBE_DYNAMIC_3
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Digital_Tube_Dynamic_3 (DIGITAL_TUBE_DYNAMIC_3)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DIGITAL_TUBE_DYNAMIC_3
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:0159H         PUBLIC        place_change_anticlockwise_type0
+  D:00B0H         PUBLIC        P3
+  C:00D3H         PUBLIC        place_change_anticlockwise_type1
+  D:0008H         PUBLIC        x_temp
+  D:0009H         PUBLIC        y_temp
+  C:01EAH         PUBLIC        main
+  D:000AH         PUBLIC        size
+  C:0231H         PUBLIC        _show
+  C:0211H         PUBLIC        _timedelay
+  D:000BH         PUBLIC        type
+  C:01C3H         PUBLIC        keycheck
+  C:019BH         PUBLIC        show_tail
+  C:0117H         PUBLIC        place_change_clockwise_type0
+  C:008FH         PUBLIC        place_change_clockwise_type1
+  D:000CH         PUBLIC        type_temp
+  B:00B0H.2       PUBLIC        Key3
+  B:00B0H.3       PUBLIC        Key4
+  D:000DH         PUBLIC        x
+  D:000EH         PUBLIC        y
+  -------         PROC          _TIMEDELAY
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0211H         LINE#         8
+  C:0211H         LINE#         10
+  C:021BH         LINE#         11
+  C:021EH         LINE#         12
+  C:0229H         LINE#         13
+  C:0230H         LINE#         14
+  -------         ENDPROC       _TIMEDELAY
+  -------         PROC          PLACE_CHANGE_CLOCKWISE_TYPE0
+  C:0117H         LINE#         16
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/22/2025  14:21:10  PAGE 3
+
+
+  C:0117H         LINE#         17
+  C:011BH         LINE#         18
+  C:011FH         LINE#         19
+  C:0121H         LINE#         20
+  C:0122H         LINE#         21
+  C:0127H         LINE#         22
+  C:012AH         LINE#         23
+  C:012BH         LINE#         24
+  C:012BH         LINE#         25
+  C:012DH         LINE#         26
+  C:012DH         LINE#         27
+  C:012EH         LINE#         28
+  C:0133H         LINE#         29
+  C:0138H         LINE#         30
+  C:013BH         LINE#         31
+  C:013CH         LINE#         32
+  C:0140H         LINE#         33
+  C:0142H         LINE#         34
+  C:0143H         LINE#         35
+  C:0143H         LINE#         36
+  C:0146H         LINE#         37
+  C:0149H         LINE#         38
+  C:0149H         LINE#         39
+  C:014AH         LINE#         40
+  C:014FH         LINE#         41
+  C:0151H         LINE#         42
+  C:0152H         LINE#         43
+  C:0156H         LINE#         44
+  C:0158H         LINE#         45
+  C:0158H         LINE#         46
+  -------         ENDPROC       PLACE_CHANGE_CLOCKWISE_TYPE0
+  -------         PROC          PLACE_CHANGE_CLOCKWISE_TYPE1
+  C:008FH         LINE#         48
+  C:008FH         LINE#         49
+  C:0093H         LINE#         50
+  C:0098H         LINE#         51
+  C:009AH         LINE#         52
+  C:009BH         LINE#         53
+  C:00A0H         LINE#         54
+  C:00A3H         LINE#         55
+  C:00A4H         LINE#         56
+  C:00A4H         LINE#         57
+  C:00A6H         LINE#         58
+  C:00A6H         LINE#         59
+  C:00A7H         LINE#         60
+  C:00ACH         LINE#         61
+  C:00B1H         LINE#         62
+  C:00B4H         LINE#         63
+  C:00B5H         LINE#         64
+  C:00BAH         LINE#         65
+  C:00BCH         LINE#         66
+  C:00BDH         LINE#         67
+  C:00BDH         LINE#         68
+  C:00C0H         LINE#         69
+  C:00C2H         LINE#         70
+  C:00C2H         LINE#         71
+  C:00C3H         LINE#         72
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/22/2025  14:21:10  PAGE 4
+
+
+  C:00C8H         LINE#         73
+  C:00CAH         LINE#         74
+  C:00CBH         LINE#         75
+  C:00D0H         LINE#         76
+  C:00D2H         LINE#         77
+  C:00D2H         LINE#         78
+  -------         ENDPROC       PLACE_CHANGE_CLOCKWISE_TYPE1
+  -------         PROC          PLACE_CHANGE_ANTICLOCKWISE_TYPE0
+  C:0159H         LINE#         81
+  C:0159H         LINE#         82
+  C:015DH         LINE#         83
+  C:0161H         LINE#         84
+  C:0163H         LINE#         85
+  C:0164H         LINE#         86
+  C:0169H         LINE#         87
+  C:016BH         LINE#         88
+  C:016CH         LINE#         89
+  C:016CH         LINE#         90
+  C:016FH         LINE#         91
+  C:016FH         LINE#         92
+  C:0170H         LINE#         93
+  C:0175H         LINE#         94
+  C:0179H         LINE#         95
+  C:017CH         LINE#         96
+  C:017FH         LINE#         97
+  C:0180H         LINE#         98
+  C:0185H         LINE#         99
+  C:0188H         LINE#         100
+  C:0189H         LINE#         101
+  C:0189H         LINE#         102
+  C:018BH         LINE#         103
+  C:018BH         LINE#         104
+  C:018CH         LINE#         105
+  C:0191H         LINE#         106
+  C:0193H         LINE#         107
+  C:0194H         LINE#         108
+  C:0198H         LINE#         109
+  C:019AH         LINE#         110
+  C:019AH         LINE#         111
+  -------         ENDPROC       PLACE_CHANGE_ANTICLOCKWISE_TYPE0
+  -------         PROC          PLACE_CHANGE_ANTICLOCKWISE_TYPE1
+  C:00D3H         LINE#         114
+  C:00D3H         LINE#         115
+  C:00D7H         LINE#         116
+  C:00DCH         LINE#         117
+  C:00DEH         LINE#         118
+  C:00DFH         LINE#         119
+  C:00E4H         LINE#         120
+  C:00E6H         LINE#         121
+  C:00E7H         LINE#         122
+  C:00E7H         LINE#         123
+  C:00EAH         LINE#         124
+  C:00EAH         LINE#         125
+  C:00EBH         LINE#         126
+  C:00F0H         LINE#         127
+  C:00F5H         LINE#         128
+  C:00F7H         LINE#         129
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/22/2025  14:21:10  PAGE 5
+
+
+  C:00F8H         LINE#         130
+  C:00FDH         LINE#         131
+  C:0100H         LINE#         132
+  C:0103H         LINE#         133
+  C:0104H         LINE#         134
+  C:0104H         LINE#         135
+  C:0106H         LINE#         136
+  C:0106H         LINE#         137
+  C:0107H         LINE#         138
+  C:010CH         LINE#         139
+  C:010EH         LINE#         140
+  C:010FH         LINE#         141
+  C:0114H         LINE#         142
+  C:0116H         LINE#         143
+  C:0116H         LINE#         144
+  -------         ENDPROC       PLACE_CHANGE_ANTICLOCKWISE_TYPE1
+  -------         PROC          KEYCHECK
+  C:01C3H         LINE#         146
+  C:01C3H         LINE#         147
+  C:01C6H         LINE#         148
+  C:01CDH         LINE#         149
+  C:01D4H         LINE#         150
+  C:01D6H         LINE#         151
+  C:01D6H         LINE#         152
+  C:01D6H         LINE#         153
+  C:01D9H         LINE#         154
+  C:01E0H         LINE#         155
+  C:01E7H         LINE#         156
+  C:01E9H         LINE#         157
+  C:01E9H         LINE#         158
+  C:01E9H         LINE#         159
+  -------         ENDPROC       KEYCHECK
+  -------         PROC          _SHOW
+  D:0007H         SYMBOL        x
+  D:0005H         SYMBOL        y
+  C:0231H         LINE#         162
+  C:0231H         LINE#         163
+  C:0234H         LINE#         164
+  C:023BH         LINE#         165
+  C:024AH         LINE#         166
+  -------         ENDPROC       _SHOW
+  -------         PROC          SHOW_TAIL
+  -------         DO            
+  D:0001H         SYMBOL        i
+  -------         ENDDO         
+  C:019BH         LINE#         169
+  C:019BH         LINE#         171
+  C:019EH         LINE#         172
+  C:01A1H         LINE#         173
+  C:01A4H         LINE#         174
+  C:01ACH         LINE#         175
+  C:01B0H         LINE#         176
+  C:01B3H         LINE#         177
+  C:01B5H         LINE#         178
+  C:01B5H         LINE#         179
+  C:01B8H         LINE#         180
+  C:01B8H         LINE#         181
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/22/2025  14:21:10  PAGE 6
+
+
+  C:01BFH         LINE#         182
+  C:01C2H         LINE#         183
+  -------         ENDPROC       SHOW_TAIL
+  -------         PROC          MAIN
+  -------         DO            
+  D:000FH         SYMBOL        i
+  -------         ENDDO         
+  C:01EAH         LINE#         185
+  C:01EAH         LINE#         186
+  C:01EAH         LINE#         188
+  C:01EDH         LINE#         189
+  C:01F0H         LINE#         190
+  C:01F7H         LINE#         191
+  C:01FAH         LINE#         192
+  C:0203H         LINE#         193
+  C:0207H         LINE#         194
+  C:020AH         LINE#         195
+  C:020CH         LINE#         196
+  C:020CH         LINE#         197
+  C:020FH         LINE#         198
+  C:020FH         LINE#         199
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DIGITAL_TUBE_DYNAMIC_3
+
+Program Size: data=17.0 xdata=0 code=609
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

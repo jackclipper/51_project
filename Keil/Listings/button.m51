@@ -1,9 +1,9 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    11/06/2025  18:42:45  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    12/25/2025  20:44:35  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
-C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\button.obj TO .\Objects\button PRINT (.\Listings\button.m51
->> )
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\20251106_Button.obj TO .\Objects\button PRINT (.\Listings\b
+>> utton.m51)
 
 
 MEMORY MODEL: SMALL
@@ -11,7 +11,7 @@ MEMORY MODEL: SMALL
 
 INPUT MODULES INCLUDED:
   .\Objects\STARTUP.obj (?C_STARTUP)
-  .\Objects\button.obj (BUTTON)
+  .\Objects\20251106_Button.obj (20251106_BUTTON)
 
 
 LINK MAP OF MODULE:  .\Objects\button (?C_STARTUP)
@@ -27,9 +27,9 @@ LINK MAP OF MODULE:  .\Objects\button (?C_STARTUP)
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-            CODE    0003H     0026H     UNIT         ?PR?_DELAY?BUTTON
-            CODE    0029H     0024H     UNIT         ?PR?_BLINK?BUTTON
-            CODE    004DH     0018H     UNIT         ?PR?MAIN?BUTTON
+            CODE    0003H     0026H     UNIT         ?PR?_DELAY?20251106_BUTTON
+            CODE    0029H     0024H     UNIT         ?PR?_BLINK?20251106_BUTTON
+            CODE    004DH     0018H     UNIT         ?PR?MAIN?20251106_BUTTON
             CODE    0065H     000CH     UNIT         ?C_C51STARTUP
 
 
@@ -37,17 +37,17 @@ LINK MAP OF MODULE:  .\Objects\button (?C_STARTUP)
 OVERLAY MAP OF MODULE:   .\Objects\button (?C_STARTUP)
 
 
-SEGMENT                          DATA_GROUP 
-  +--> CALLED SEGMENT          START    LENGTH
-----------------------------------------------
-?C_C51STARTUP                  -----    -----
-  +--> ?PR?MAIN?BUTTON
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?C_C51STARTUP                      -----    -----
+  +--> ?PR?MAIN?20251106_BUTTON
 
-?PR?MAIN?BUTTON                -----    -----
-  +--> ?PR?_BLINK?BUTTON
+?PR?MAIN?20251106_BUTTON           -----    -----
+  +--> ?PR?_BLINK?20251106_BUTTON
 
-?PR?_BLINK?BUTTON              0008H    0002H
-  +--> ?PR?_DELAY?BUTTON
+?PR?_BLINK?20251106_BUTTON         0008H    0002H
+  +--> ?PR?_DELAY?20251106_BUTTON
 
 
 
@@ -59,7 +59,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\button (?C_STARTUP)
   -------         MODULE        ?C_STARTUP
   C:0065H         SEGMENT       ?C_C51STARTUP
   I:000AH         SEGMENT       ?STACK
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/06/2025  18:42:45  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/25/2025  20:44:35  PAGE 2
 
 
   C:0000H         PUBLIC        ?C_STARTUP
@@ -93,7 +93,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\button (?C_STARTUP)
   C:006EH         LINE#         196
   -------         ENDMOD        ?C_STARTUP
 
-  -------         MODULE        BUTTON
+  -------         MODULE        20251106_BUTTON
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
@@ -119,7 +119,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\button (?C_STARTUP)
   D:0008H         SYMBOL        p
   -------         DO            
   D:0082H         SYMBOL        k
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/06/2025  18:42:45  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/25/2025  20:44:35  PAGE 3
 
 
   -------         ENDDO         
@@ -143,7 +143,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\button (?C_STARTUP)
   C:0063H         LINE#         31
   C:0063H         LINE#         32
   -------         ENDPROC       MAIN
-  -------         ENDMOD        BUTTON
+  -------         ENDMOD        20251106_BUTTON
 
 Program Size: data=11.0 xdata=0 code=113
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

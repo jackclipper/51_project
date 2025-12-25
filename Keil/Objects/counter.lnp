@@ -1,4 +1,0 @@
-".\Objects\counter.obj",
-".\Objects\STARTUP.obj" 
-TO ".\Objects\counter" 
-PRINT(".\Listings\counter.m51")
