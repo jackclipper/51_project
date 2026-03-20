@@ -1,0 +1,191 @@
+C51 COMPILER V9.57.0.0   20260128_FINAL1                                                   01/28/2026 22:01:55 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE 20260128_FINAL1
+OBJECT MODULE PLACED IN .\Objects\20260128_Final1.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE 20260128_Final1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Li
+                    -stings\20260128_Final1.lst) TABS(2) OBJECT(.\Objects\20260128_Final1.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include <string.h>
+   3          
+   4          #define uchar unsigned char
+   5          #define uint  unsigned int
+   6          
+   7          // 引脚定义
+   8          sbit RS = P2^0;
+   9          sbit RW = P2^1;
+  10          sbit EN = P2^2;
+  11          sbit LED_G = P3^0; // 绿灯：正确
+  12          sbit LED_R = P3^1; // 红灯：错误
+  13          sbit BEEP  = P3^2; // 扬声器驱动
+  14          
+  15          // 全局变量
+  16          uchar current_pwd[5] = "1234";   // 当前密码（初始为1234）
+  17          uchar input_pwd[5];              // 输入缓冲
+  18          uchar error_cnt = 0;             // 累计错误次数
+  19          
+  20          // 延时函数
+  21          void delay(uint ms) {
+  22   1          uint i, j;
+  23   1          for(i=ms; i>0; i--)
+  24   1              for(j=110; j>0; j--);
+  25   1      }
+  26          
+  27          // 扬声器
+  28          void alarm_sound(uint duration_ms) {
+  29   1          uint i;
+  30   1          for(i=0; i<duration_ms; i++) {
+  31   2              BEEP = !BEEP; 
+  32   2              delay(1); 
+  33   2          }
+  34   1      }
+  35          
+  36          // LCD1602驱动
+  37          void write_cmd(uchar cmd) { RS=0; RW=0; P0=cmd; EN=1; delay(1); EN=0; }
+  38          void write_dat(uchar dat) { RS=1; RW=0; P0=dat; EN=1; delay(1); EN=0; }
+  39          void lcd_init() {
+  40   1          write_cmd(0x38); write_cmd(0x0c); write_cmd(0x06); write_cmd(0x01);
+  41   1      }
+  42          void display_str(uchar row, uchar col, uchar *s) {
+  43   1          if(row == 0) write_cmd(0x80 + col);
+  44   1          else write_cmd(0xC0 + col);
+  45   1          while(*s) write_dat(*s++);
+  46   1      }
+  47          
+  48          // 矩阵键盘扫描
+  49          uchar scan_key() {
+  50   1          uchar row, col, tmp;
+  51   1          P1 = 0xF0; // 高四位列输入，低四位行输出
+  52   1          if(P1 != 0xF0) {
+  53   2              delay(10); // 消抖
+  54   2              if(P1 != 0xF0) {
+C51 COMPILER V9.57.0.0   20260128_FINAL1                                                   01/28/2026 22:01:55 PAGE 2   
+
+  55   3                  // 行检测
+  56   3                  tmp = P1;
+  57   3                  if(tmp==0xE0) row=0; else if(tmp==0xD0) row=1;
+  58   3                  else if(tmp==0xB0) row=2; else if(tmp==0x70) row=3;
+  59   3                  // 列检测
+  60   3                  P1 = 0x0F;
+  61   3                  tmp = P1;
+  62   3                  if(tmp==0x0E) col=0; else if(tmp==0x0D) col=1;
+  63   3                  else if(tmp==0x0B) col=2; else if(tmp==0x07) col=3;
+  64   3                  
+  65   3                  while(P1 != 0x0F); // 等待按键释放
+  66   3              
+  67   3                  if(row==0 && col==0) return '7'; if(row==0 && col==1) return '8'; if(row==0 && col==2) return 
+             -'9';
+  68   3                  if(row==1 && col==0) return '4'; if(row==1 && col==1) return '5'; if(row==1 && col==2) return 
+             -'6'; if(row==1 && col==3) return '*';
+  69   3                  if(row==2 && col==0) return '1'; if(row==2 && col==1) return '2'; if(row==2 && col==2) return 
+             -'3';
+  70   3                  if(row==3 && col==0) return 'C'; if(row==3 && col==1) return '0'; if(row==3 && col==2) return 
+             -'V';
+  71   3              }
+  72   2          }
+  73   1          return 0xFF;
+  74   1      }
+  75          
+  76          // 修改密码逻辑
+  77          void change_pwd_mode() {
+  78   1          uchar i = 0, k;
+  79   1          uchar n1[5], n2[5];
+  80   1          
+  81   1          write_cmd(0x01);
+  82   1          display_str(0, 0, "New Pwd:");
+  83   1          while(i < 4) {
+  84   2              k = scan_key();
+  85   2              if(k >= '0' && k <= '9') {
+  86   3                  n1[i++] = k;
+  87   3                  write_dat('*');
+  88   3              }
+  89   2          }
+  90   1          n1[4] = '\0';
+  91   1          while(scan_key() != 'V'); // 按下确定
+  92   1      
+  93   1          write_cmd(0x01);
+  94   1          display_str(0, 0, "Input Again:");
+  95   1          i = 0;
+  96   1          while(i < 4) {
+  97   2              k = scan_key();
+  98   2              if(k >= '0' && k <= '9') {
+  99   3                  n2[i++] = k;
+ 100   3                  write_dat('*');
+ 101   3              }
+ 102   2          }
+ 103   1          n2[4] = '\0';
+ 104   1      
+ 105   1          if(strcmp(n1, n2) == 0) {
+ 106   2              strcpy(current_pwd, n1);
+ 107   2              display_str(1, 0, "Pwd is changed!");
+ 108   2          } else {
+ 109   2              display_str(1, 0, "Error!");
+ 110   2          }
+ 111   1          delay(2000);
+ 112   1      }
+C51 COMPILER V9.57.0.0   20260128_FINAL1                                                   01/28/2026 22:01:55 PAGE 3   
+
+ 113          
+ 114          // 主函数
+ 115          void main() {
+ 116   1          uchar i = 0, k;
+ 117   1          lcd_init();
+ 118   1          LED_G = 1; LED_R = 1; BEEP = 0;
+ 119   1      
+ 120   1          while(1) {
+ 121   2              write_cmd(0x01);
+ 122   2              display_str(0, 0, "Input: ");
+ 123   2              i = 0;
+ 124   2              memset(input_pwd, 0, 5);
+ 125   2      
+ 126   2              while(i < 4) {
+ 127   3                  k = scan_key();
+ 128   3                  if(k >= '0' && k <= '9') {
+ 129   4                      input_pwd[i++] = k;
+ 130   4                      display_str(0, 7+i, "*");
+ 131   4                  }
+ 132   3                  else if(k == 'C' && i > 0) { // 回退键
+ 133   4                      write_cmd(0x80 + 7 + i); write_dat(' '); i--; write_cmd(0x80 + 7 + i);
+ 134   4                  }
+ 135   3                  else if(k == '*') { // 修改键
+ 136   4                      change_pwd_mode();
+ 137   4                      i = 9; // 强制重新开始主循环
+ 138   4                  }
+ 139   3              }
+ 140   2      
+ 141   2              if(i == 4) { // 输入满4位
+ 142   3                  while(scan_key() != 'V'); // 等待确认键
+ 143   3                  if(strcmp(input_pwd, current_pwd) == 0) {
+ 144   4                      display_str(1, 0, "Correct!");
+ 145   4                      LED_G = 0; delay(1000); LED_G = 1;
+ 146   4                      error_cnt = 0;
+ 147   4                  } else {
+ 148   4                      display_str(1, 0, "Error!");
+ 149   4                      LED_R = 0; alarm_sound(1000); LED_R = 1;
+ 150   4                      error_cnt++;
+ 151   4                      if(error_cnt >= 3) {
+ 152   5                          display_str(1, 0, "Locked 3s!");
+ 153   5                          alarm_sound(3000);
+ 154   5                          error_cnt = 0;
+ 155   5                      }
+ 156   4                  }
+ 157   3              }
+ 158   2          }
+ 159   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    821    ----
+   CONSTANT SIZE    =     75    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     11      18
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

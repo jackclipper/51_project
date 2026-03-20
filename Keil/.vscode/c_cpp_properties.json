@@ -4,7 +4,7 @@
             "name": "Target 1",
             "includePath": [
                 "C:\\Keil_v5\\C51\\INC",
-                "d:\\16092\\Documents\\51_project\\Keil"
+                "d:\\BaiduSyncdisk\\02_Work\\51_project\\Keil"
             ],
             "defines": [
                 "__C51__",

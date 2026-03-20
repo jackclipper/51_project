@@ -1,0 +1,24 @@
+C51 COMPILER V9.57.0.0   20260128_FINAL                                                    01/28/2026 20:25:34 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE 20260128_FINAL
+OBJECT MODULE PLACED IN .\Objects\20260128_Final.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE 20260128_Final.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Lis
+                    -tings\20260128_Final.lst) TABS(2) OBJECT(.\Objects\20260128_Final.obj)
+
+line level    source
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

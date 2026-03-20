@@ -1,22 +1,7 @@
 Build target 'Target 1'
-compiling Countdown_Timer.c...
+compiling 20260128_Final2.c...
 linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_UPDATE_DISPLAY_FROM_COUNT?COUNTDOWN_TIMER
-    CALLER1: ?PR?TIMER0?COUNTDOWN_TIMER
-    CALLER2: ?PR?EXTERNAL0?COUNTDOWN_TIMER
-
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_UPDATE_DISPLAY_FROM_COUNT?COUNTDOWN_TIMER
-    CALLER1: ?PR?EXTERNAL0?COUNTDOWN_TIMER
-    CALLER2: ?PR?EXTERNAL1?COUNTDOWN_TIMER
-
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_UPDATE_DISPLAY_FROM_COUNT?COUNTDOWN_TIMER
-    CALLER1: ?PR?EXTERNAL1?COUNTDOWN_TIMER
-    CALLER2: ?C_C51STARTUP
-
-Program Size: data=40.4 xdata=0 code=900
-creating hex file from ".\Objects\Countdown_Timer"...
-".\Objects\Countdown_Timer" - 0 Error(s), 3 Warning(s).
+Program Size: data=90.1 xdata=0 code=824
+creating hex file from ".\Objects\20260128_Final2"...
+".\Objects\20260128_Final2" - 0 Error(s), 0 Warning(s).
 Build Time Elapsed:  00:00:00
