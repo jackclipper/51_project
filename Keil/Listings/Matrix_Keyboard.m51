@@ -1,0 +1,157 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    12/02/2025  21:03:24  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\Matrix_Keyboard.obj TO .\Objects\Matrix_Keyboard PRINT (.\Listings\Matrix_Keyboard
+>> .m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\Matrix_Keyboard.obj (MATRIX_KEYBOARD)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\Matrix_Keyboard (MATRIX_KEYBOARD)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0012H     UNIT         ?DT?MATRIX_KEYBOARD
+            IDATA   001AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     007BH     UNIT         ?PR?READ_KEY?MATRIX_KEYBOARD
+            CODE    010AH     0026H     UNIT         ?PR?KEYSCAN?MATRIX_KEYBOARD
+            CODE    0130H     0026H     UNIT         ?C?LIB_CODE
+            CODE    0156H     0020H     UNIT         ?PR?_TIMEDELAY?MATRIX_KEYBOARD
+            CODE    0176H     0014H     UNIT         ?C_INITSEG
+            CODE    018AH     0010H     UNIT         ?PR?MAIN?MATRIX_KEYBOARD
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Matrix_Keyboard (MATRIX_KEYBOARD)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MATRIX_KEYBOARD
+  +--> ?C_INITSEG
+
+?PR?MAIN?MATRIX_KEYBOARD
+  +--> ?PR?READ_KEY?MATRIX_KEYBOARD
+
+?PR?READ_KEY?MATRIX_KEYBOARD
+  +--> ?PR?KEYSCAN?MATRIX_KEYBOARD
+
+?PR?KEYSCAN?MATRIX_KEYBOARD
+  +--> ?PR?_TIMEDELAY?MATRIX_KEYBOARD
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/02/2025  21:03:24  PAGE 2
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Matrix_Keyboard (MATRIX_KEYBOARD)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MATRIX_KEYBOARD
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  C:018AH         PUBLIC        main
+  C:0156H         PUBLIC        _timedelay
+  C:008FH         PUBLIC        read_key
+  D:0008H         PUBLIC        num
+  D:0019H         PUBLIC        keyVal
+  C:010AH         PUBLIC        keyscan
+  -------         PROC          _TIMEDELAY
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0156H         LINE#         7
+  C:0156H         LINE#         9
+  C:0160H         LINE#         10
+  C:0163H         LINE#         11
+  C:016EH         LINE#         12
+  C:0175H         LINE#         13
+  -------         ENDPROC       _TIMEDELAY
+  -------         PROC          KEYSCAN
+  -------         DO            
+  D:0007H         SYMBOL        row
+  D:0006H         SYMBOL        col
+  -------         ENDDO         
+  C:010AH         LINE#         15
+  C:010AH         LINE#         17
+  C:010DH         LINE#         18
+  C:0113H         LINE#         19
+  C:011AH         LINE#         20
+  C:0120H         LINE#         21
+  C:0122H         LINE#         22
+  C:0125H         LINE#         23
+  C:0127H         LINE#         24
+  C:012CH         LINE#         25
+  C:012FH         LINE#         26
+  C:012FH         LINE#         27
+  C:012FH         LINE#         28
+  -------         ENDPROC       KEYSCAN
+  -------         PROC          READ_KEY
+  -------         DO            
+  D:0007H         SYMBOL        key
+  -------         ENDDO         
+  C:008FH         LINE#         30
+  C:008FH         LINE#         32
+  C:0092H         LINE#         33
+  C:00CAH         LINE#         34
+  C:00CEH         LINE#         35
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/02/2025  21:03:24  PAGE 3
+
+
+  C:00D2H         LINE#         36
+  C:00D6H         LINE#         37
+  C:00DAH         LINE#         38
+  C:00DEH         LINE#         39
+  C:00E2H         LINE#         40
+  C:00E6H         LINE#         41
+  C:00EAH         LINE#         42
+  C:00EEH         LINE#         43
+  C:00F2H         LINE#         44
+  C:00F6H         LINE#         45
+  C:00FAH         LINE#         46
+  C:00FEH         LINE#         47
+  C:0102H         LINE#         48
+  C:0106H         LINE#         49
+  C:0109H         LINE#         50
+  C:0109H         LINE#         51
+  -------         ENDPROC       READ_KEY
+  -------         PROC          MAIN
+  C:018AH         LINE#         53
+  C:018AH         LINE#         54
+  C:018DH         LINE#         55
+  C:018DH         LINE#         56
+  C:0190H         LINE#         57
+  C:0198H         LINE#         58
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MATRIX_KEYBOARD
+
+  -------         MODULE        ?C?CCASE
+  C:0130H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+Program Size: data=27.0 xdata=0 code=410
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
